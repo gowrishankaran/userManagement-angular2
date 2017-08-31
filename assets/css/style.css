@@ -13,6 +13,20 @@ body {
 	font-weight: bold;
 }
 
+.user-icon {
+	text-align: center;
+    font-size: 100px;
+}
+
+.custom-card {
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.custom-card .card-block {
+	text-align: center;
+}
+
 
 
 .searchPart {
@@ -35,4 +49,43 @@ body {
 .modelTitle {
 	font-weight: bold;
 	font-size:20px;	
+}
+
+.m0 {
+	margin: 0px !important;
+}
+
+.pd0 {
+	padding: 0px !important;
+}
+
+.top-filter-section {
+	margin: 10px 0px !important;
+}
+
+.filter-block {
+	border: 1px dashed #0275d8;
+    padding: 10px;
+    float: right;
+}
+
+.custom-nav {
+
+}
+
+.custom-navbar .menu-title {
+	position: relative;
+	bottom: 3px;
+}
+
+.main-icon-size {
+	font-size: 20vh;
+}
+
+.action-icon {
+	font-size: 15px;
+}
+
+.filter-icon {
+	font-size: 4vh;
 }

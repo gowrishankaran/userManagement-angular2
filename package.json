@@ -2,7 +2,7 @@
   "name": "User-Management-Angular2",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
@@ -24,6 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25",
     "angular-in-memory-web-api": "~0.3.0",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
     "zone.js": "^0.8.4"
@@ -31,7 +32,7 @@
   "devDependencies": {
     "concurrently": "^3.2.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.3.0",
-    "typings": "^1.4.0"
+    "typescript": "2.3.0",
+    "typings": "1.4.0"
   }
 }

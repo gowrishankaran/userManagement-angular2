@@ -1,1 +1,26 @@
-<h1>List Page</h1>
+<div class="container">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>User Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Sex</th>
+				<th>Email</th>
+				<th>City</th>
+				<th>Country</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of UserList">
+				<td>{{user.userID}}</td>
+				<td>{{user.firstName}}</td>
+				<td>{{user.lastName}}</td>
+				<td>{{user.sex}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.city}}</td>
+				<td>{{user.country}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

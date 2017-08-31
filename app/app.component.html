@@ -2,21 +2,34 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">User Management</a>
+  <a class="navbar-brand" href="#">
+    <img src="./assets/image/angular2-icon.png" alt="Logo" height="30" />
+    User Management
+  </a>
 
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a routerLink="/home" class="nav-link" href="#">Home</a>
+    <ul class="navbar-nav mr-auto custom-navbar">
+      <li class="nav-item active ">
+        <a routerLink="/home" class="nav-link" href="#">
+            <i class="fa fa-home"></i>
+            <span class="menu-title">Home</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/lists" class="nav-link" href="#">Lists</a>
+        <a routerLink="/lists" class="nav-link" href="#">
+            <i class="fa fa-list"></i>
+            <span class="menu-title">Lists</span>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Reports</a>
+        <a class="nav-link" href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span class="menu-title">Reports</span>
+        </a>
       </li>
     </ul>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+

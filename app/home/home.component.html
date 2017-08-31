@@ -1,1 +1,150 @@
-<h1>Home Component</h1>
+<div class="row top-filter-section">
+	<div class="col-sm-12">
+		<div class="filter-block">
+			<label>Filter : </label>
+			<label class="form-radio-label">
+				<input  type="radio" name="all" value="all" [(ngModel)]="genderFilterModel">
+				<i class="fa fa-users filter-icon"></i>
+			</label>
+			<label class="form-radio-label">
+				<input  type="radio" name="Male" value="Male" [(ngModel)]="genderFilterModel">
+				<i class="fa fa-male filter-icon"></i>
+			</label>
+			<label class="form-radio-label">
+				<input  type="radio" name="Female" value="Female" [(ngModel)]="genderFilterModel">
+				<i class="fa fa-female filter-icon"></i>
+			</label>
+		</div>
+	</div>
+</div>
+
+
+<div class="row m0">
+	<div class="card custom-card col-sm-3">
+	  <div class="text-center">
+	  	
+	  	<i class="fa fa-users main-icon-size"></i>
+	  </div>
+	  <div class="card-block">
+	    <p class="card-text">User Management</p>
+	    <span class="btn btn-primary" (click)="addNew(content)">
+	    	Add User
+	    	<i class="fa fa-plus"></i>
+	    </span>
+	  </div>
+	</div>
+
+	<div class="card custom-card col-sm-3" *ngFor="let user of userLists | genderFilter:genderFilterModel;let i = index;">
+	  <div class="text-center">
+	  	<i class="fa fa-male main-icon-size" *ngIf="user.sex === 'Male'"></i>
+	  	<i class="fa fa-female main-icon-size" *ngIf="user.sex === 'Female'"></i>
+	  </div>
+	  <div class="card-block">
+	    <p class="card-text">{{user.firstName}} {{user.lastName}}</p>
+	    <span class="btn btn-primary" (click)="editUser(content,user)">
+	    	Edit
+	    	
+	    	<i class="fa fa-edit action-icon"></i>
+	    </span>
+	    <span class="btn btn-primary" (click)="deleteUser(i)">
+	    	Delete
+	    	
+	    	<i class="fa fa-remove action-icon"></i>
+	    </span>
+	  </div>
+	</div>
+</div>
+
+<!-- <div class="row m0">
+	<div class="col-sm-12">
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+		    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+		  </ul>
+		</nav>
+	</div>
+</div> -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    	<form class="form-horizontal">
+      	 
+		  <div class="form-group row">
+		    <label for="id" class="col-2 col-form-label">Id</label>
+		    <div class="col-10">
+		      <input type="text" class="form-control" name="userID" [(ngModel)]="userID" placeholder="Id" required #name="ngModel">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="First Name" class="col-2 col-form-label">First Name</label>
+		    <div class="col-10">
+		      <input type="text" class="form-control" name="firstName" [(ngModel)]="firstName" placeholder="First Name" required="required" />
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="Last Name" class="col-2 col-form-label">Last Name</label>
+		    <div class="col-10">
+		      <input type="text" class="form-control" name="lastName" [(ngModel)]="lastName" placeholder="Last Name" required/>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+			<label for="Last Name" class="col-2 col-form-label">Sex</label>
+			<div class="col-10">
+				<!-- <input type="text" class="form-control" name="sex" [(ngModel)]="sex" placeholder="Sex" /> -->
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="radio" name="sex" [(ngModel)]="sex" value="Male">
+						<i class="fa fa-male"></i>
+					</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<label class="form-check-label">
+						<input class="form-check-input" type="radio" name="sex" [(ngModel)]="sex" value="Female"> 
+						<i class="fa fa-female"></i>
+					</label>
+				</div>
+			</div>
+
+		  </div>
+
+		  <div class="form-group row">
+		    <label for="Email" class="col-2 col-form-label">Email</label>
+		    <div class="col-10">
+		      <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="Email" />
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="Last Name" class="col-2 col-form-label">City</label>
+		    <div class="col-10">
+		      <input type="text" class="form-control" name="city" [(ngModel)]="city" placeholder="City" />
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="Last Name" class="col-2 col-form-label">Country</label>
+		    <div class="col-10">
+		      <input type="text" class="form-control" name="country" [(ngModel)]="country" placeholder="Country" />
+		    </div>
+		  </div>
+
+		  <div class="pull-right">
+		  		<button type="submit" class="btn btn-success" *ngIf="isSave" (click)="save()">Save</button>
+		  		<button type="submit" class="btn btn-success" *ngIf="isUpdate" (click)="update()">Update</button>
+    			<button type="button" class="btn btn-danger" (click)="c('Close click')">Close</button>
+		  </div>
+		</form> 
+  </div>
+  <!-- <div class="modal-footer">
+  	
+  </div> -->
+</ng-template>
+
