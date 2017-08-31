@@ -13,12 +13,20 @@ This is the simple application to kickstart with Angular 2 Projects (Typescript)
 Here, I have covered the following features which are used in the application
 
 -> Routing (SPA - Single Page Application)
+
 -> Module
+
 -> Component
+
 -> Service (HTTP Module with Observables)
+
 -> Pipe (For filtering)
+
 -> Inferface (For Custome Type based on the Data's)
+
 -> Subscribe (For HTTP Module - Observables)
+
 -> Modal (@ng-bootstrap) with Boostrap 4
+
 -> Other angular methods like [(ngModel)], *ngFor, *ngIf & (click)
 
